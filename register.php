@@ -3,52 +3,34 @@
 // Wczytanie konfiguracji do bazy danych
 include 'config.php';
 
-// Wczytanie biblioteki PHPMailer
-require 'path/to/PHPMailer/PHPMailerAutoload.php';
-
 // Rozkazy dla bazy danych
 if(isset($_POST['submit'])){
-   // reszta kodu rejestracji
+   $name = mysqli_real_escape_string($conn, $_POST['name']);
+   $email = mysqli_real_escape_string($conn, $_POST['email']);
+   $password = $_POST['password'];
+   $confirmPassword = $_POST['cpassword'];
+   $user_type = 'user'; // Domyślny typ użytkownika
 
-   // Wygeneruj unikalny kod aktywacyjny
-   $activation_code = uniqid();
+   // Sprawdź, czy użytkownik już istnieje
+   $select_users = mysqli_query($conn, "SELECT * FROM `users` WHERE email = '$email'") or die('query failed');
 
-   // Wstaw użytkownika do bazy danych
-   mysqli_query($conn, "INSERT INTO `users`(name, email, password, user_type, activation_code) VALUES('$name', '$email', '$hashedPassword', '$user_type', '$activation_code')") or die('query failed');
+   if(mysqli_num_rows($select_users) > 0){
+      $message[] = 'Użytkownik już istnieje!';
+   }else{
+      if($password != $confirmPassword){
+         $message[] = 'Hasło musi być takie samo!';
+      }else{
+         // Wygeneruj hasło z użyciem bcrypt
+         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-   // Wysłanie wiadomości e-mail z linkiem aktywacyjnym
-   $mail = new PHPMailer;
-
-   // Ustawienia poczty wychodzącej
-   $mail->isSMTP();
-   $mail->Host = 'smtp.example.com';
-   $mail->Port = 587;
-   $mail->SMTPAuth = true;
-   $mail->Username = 'your_email@example.com';
-   $mail->Password = 'your_email_password';
-
-   // Adres nadawcy i odbiorcy
-   $mail->setFrom('your_email@example.com', 'Your Name');
-   $mail->addAddress($email, $name);
-
-   // Temat i treść wiadomości e-mail
-   $mail->Subject = 'Aktywacja konta';
-   $mail->Body = 'Kliknij poniższy link, aby aktywować swoje konto:<br><br>
-      <a href="http://www.example.com/activate.php?code='.$activation_code.'">Aktywuj konto</a>';
-
-   // Ustawienia HTML
-   $mail->isHTML(true);
-
-   // Wyślij wiadomość e-mail
-   if(!$mail->send()) {
-      echo 'Błąd podczas wysyłania wiadomości: ' . $mail->ErrorInfo;
-   } else {
-      echo 'Wiadomość aktywacyjna została wysłana na Twój adres e-mail. Sprawdź skrzynkę odbiorczą.';
+         // Wstaw użytkownika do bazy danych
+         mysqli_query($conn, "INSERT INTO `users`(name, email, password, user_type) VALUES('$name', '$email', '$hashedPassword', '$user_type')") or die('query failed');
+         $message[] = 'Rejestracja przebiegła pomyślnie!';
+         header('location:login.php');
+      }
    }
-
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
