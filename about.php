@@ -132,7 +132,7 @@ if(!isset($user_id)){
    <h1 class="title">Najlepsi autorzy</h1>
    <div class="box-container">
       <div class="box">
-         <img src="images/author-1.jpg" alt="">
+         <img src="images/autho-1.jpg" alt="">
          <div class="share">
             <a href="#" class="fab fa-facebook-f"></a>
             <a href="#" class="fab fa-twitter"></a>
@@ -142,7 +142,7 @@ if(!isset($user_id)){
          <h3>Pan Y</h3>
       </div>
       <div class="box">
-         <img src="images/author-2.jpg" alt="">
+         <img src="images/autho-2.jpg" alt="">
          <div class="share">
             <a href="#" class="fab fa-facebook-f"></a>
             <a href="#" class="fab fa-twitter"></a>
@@ -152,7 +152,7 @@ if(!isset($user_id)){
          <h3>Pani X</h3>
       </div>
       <div class="box">
-         <img src="images/author-3.jpg" alt="">
+         <img src="images/autho-3.jpg" alt="">
          <div class="share">
             <a href="#" class="fab fa-facebook-f"></a>
             <a href="#" class="fab fa-twitter"></a>
@@ -162,7 +162,7 @@ if(!isset($user_id)){
          <h3>Pan Y</h3>
       </div>
       <div class="box">
-         <img src="images/author-4.jpg" alt="">
+         <img src="images/autho-4.jpg" alt="">
          <div class="share">
             <a href="#" class="fab fa-facebook-f"></a>
             <a href="#" class="fab fa-twitter"></a>
@@ -172,7 +172,7 @@ if(!isset($user_id)){
          <h3>Pani X</h3>
       </div>
       <div class="box">
-         <img src="images/author-5.jpg" alt="">
+         <img src="images/autho-5.jpg" alt="">
          <div class="share">
             <a href="#" class="fab fa-facebook-f"></a>
             <a href="#" class="fab fa-twitter"></a>
@@ -182,7 +182,7 @@ if(!isset($user_id)){
          <h3>Pan Y</h3>
       </div>
       <div class="box">
-         <img src="images/author-6.jpg" alt="">
+         <img src="images/autho-6.jpg" alt="">
          <div class="share">
             <a href="#" class="fab fa-facebook-f"></a>
             <a href="#" class="fab fa-twitter"></a>

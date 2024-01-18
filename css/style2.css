@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
 
 :root {
-    --purple: #8e44ad;
-    --red: #c0392b;
-    --orange: #f39c12;
+    --purple: #6d3eff;
+    --red: #c07a2b;
+    --orange: #f34612;
     --black: #555252;
     --white: #fff;
     --light-color: #666;
@@ -13,13 +13,16 @@
     --box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
 }
 
-*{
-   font-family: 'Rubik', sans-serif;
-   margin:0; padding:0;
-   box-sizing: border-box;
-   outline: none; border:none;
-   text-decoration: none;
-   transition:all .2s linear;
+* {
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all .2s linear;
+    
 }
 
 *::selection{
@@ -420,6 +423,63 @@ section{
    background-color: var(--red);
 }
 
+.products2 .box-container {
+    max-width: 2000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 50rem);
+    align-items: flex-start;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+    .products2 .box-container .box {
+        width: 100%; /* Zmieniona wartoœæ, aby zajmowaæ 100% szerokoœci kontenera */
+        max-width: 50rem; /* Maksymalna szerokoœæ dla jednego box */
+        height: 60rem;
+        border-radius: .5rem;
+        background-color: var(--white);
+        box-shadow: var(--box-shadow);
+        padding: 3rem;
+        text-align: center;
+        border: var(--border);
+        position: relative;
+    }
+
+.products2 .box-container .box .image {
+    height: 50rem;
+}
+
+.products2 .box-container .box .name {
+    padding: 1rem 0;
+    font-size: 4rem;
+    color: var(--black);
+}
+
+.products2 .box-container .box .description {
+    padding: 1rem 0;
+    font-size: 2rem;
+    color: var(--black);
+}
+
+
+.products2 .box-container .box .qty {
+    width: 100%;
+    padding: 1.2rem 1.4rem;
+    border-radius: .5rem;
+    border: var(--border);
+    margin: 1rem 0;
+    font-size: 2rem;
+}
+
+    .products2 .box-container .box .price {
+        margin: 1rem;
+        border-radius: .5rem;
+        padding: 1rem;
+        font-size: 2.5rem;
+        color: var(--white);
+        background-color: var(--red);
+    }
 
 .about .flex{
    max-width: 1200px;
