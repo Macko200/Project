@@ -1,4 +1,4 @@
-<!--Sekcja zamówień Administratora--> 
+<!--Sekcja zamówień  Moderatora--> 
 <?php
 // Wczytanie konfiguracji do bazy danych
 include 'config.php';

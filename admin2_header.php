@@ -14,7 +14,7 @@ if(isset($message)){
 <!--Sekcja nagłówka-->
 <header class="header">
    <div class="flex">
-      <a href="admin2_page.php" class="logo">Moder<span>Panel</span></a>
+      <a href="admin2_page.php" class="logo">Admin<span>Panel</span></a>
       <nav class="navbar">
          <a href="admin2_page.php">Strona główna</a>
          <a href="admin2_users.php">Użytkownicy</a>

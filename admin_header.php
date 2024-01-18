@@ -1,4 +1,4 @@
-<!--Sekcja nagłówka Administratora-->
+<!--Sekcja nagłówka  Moderatora-->
 <?php
 if(isset($message)){
    foreach($message as $message){

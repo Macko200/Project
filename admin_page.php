@@ -1,4 +1,4 @@
-<!--Sekcja główna Administratora--> 
+<!--Sekcja główna  Moderatora--> 
 <?php
 // Wczytanie konfiguracji do bazy danych
 include 'config.php';

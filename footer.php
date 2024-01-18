@@ -29,5 +29,5 @@
          <a href="https://www.instagram.com"> <i class="fab fa-instagram"></i> instagram </a>
       </div>
    </div>
-   <p class="credit"> &copy; copyright  @ <?php echo date('Y'); ?> by <span>Maciej Łęcki</span> </p>
+   <p class="credit"> &copy; copyright  @ <?php echo date('Y'); ?> by <span>Maciej Łęcki & Karol Rozpara</span> </p>
 </section>
