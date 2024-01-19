@@ -36,7 +36,7 @@ if(isset($_POST['add_to_cart'])){
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>search page</title>   
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">   
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/style2.css">
 </head>
 <body>
 
@@ -60,34 +60,38 @@ if(isset($_POST['add_to_cart'])){
 <!--Wyszukane produkty-->
 <section class="products" style="padding-top: 0;">
    <div class="box-container">
-   <?php
-      if(isset($_POST['submit'])){
-         $search_item = $_POST['search'];
-         $select_products = mysqli_query($conn, "SELECT * FROM `products` WHERE name LIKE '%{$search_item}%'") or die('query failed');
-         if(mysqli_num_rows($select_products) > 0){
-         while($fetch_product = mysqli_fetch_assoc($select_products)){
-   ?>
-   <form action="" method="post" class="box">
-      <img src="uploaded_img/<?php echo $fetch_product['image']; ?>" alt="" class="image">
-      <div class="name"><?php echo $fetch_product['name']; ?></div>
-      <div class="price">PLN<?php echo $fetch_product['price']; ?>/-</div>
-      <input type="number"  class="qty" name="product_quantity" min="1" value="1">
-      <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']; ?>">
-      <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">
-      <input type="hidden" name="product_image" value="<?php echo $fetch_product['image']; ?>">
-      <input type="submit" class="btn" value="Dodaj do koszyka" name="add_to_cart">
-   </form>
-   <?php
+      <?php
+         if(isset($_POST['submit'])){
+            $search_item = $_POST['search'];
+            $select_products = mysqli_query($conn, "SELECT * FROM `products` WHERE name LIKE '%{$search_item}%'") or die('query failed');
+            if(mysqli_num_rows($select_products) > 0){
+               while($fetch_product = mysqli_fetch_assoc($select_products)){
+      ?>
+                  <div class="box">
+                     <a href="item.php?product_id=<?php echo $fetch_product['id']; ?>">
+                        <img src="uploaded_img/<?php echo $fetch_product['image']; ?>" alt="" class="image">
+                        <div class="name"><?php echo $fetch_product['name']; ?></div>
+                        <div class="price">PLN<?php echo $fetch_product['price']; ?>/-</div>
+                     </a>
+                     <form action="" method="post" class="box-form">
+                        <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']; ?>">
+                        <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">
+                        <input type="hidden" name="product_image" value="<?php echo $fetch_product['image']; ?>">
+                        <input type="submit" class="btn" value="Dodaj do koszyka" name="add_to_cart">
+                     </form>
+                  </div>
+      <?php
+               }
+            } else {
+               echo '<p class="empty">Brak wyników wyszukiwania!</p>';
             }
-         }else{
-            echo '<p class="empty">no result found!</p>';
+         } else {
+            echo '<p class="empty">Wyszukaj coś!</p>';
          }
-      }else{
-         echo '<p class="empty">Wyszukaj coś!</p>';
-      }
-   ?>
+      ?>
    </div>  
 </section>
+
 
 <!--Wczytanie stopki-->
 <?php include 'footer.php'; ?>

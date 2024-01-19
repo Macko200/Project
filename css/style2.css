@@ -2,8 +2,8 @@
 
 :root {
     --purple: #6d3eff;
-    --red: #c07a2b;
-    --orange: #f34612;
+    --red: #f12222;
+    --orange: #fc8d33;
     --black: #555252;
     --white: #fff;
     --light-color: #666;
@@ -374,24 +374,26 @@ section{
    line-height: 1.5;
 }
 
-.products .box-container{
-   max-width: 1200px;
-   margin:0 auto;
-   display: grid;
-   grid-template-columns: repeat(auto-fit, 30rem);
-   align-items: flex-start;
-   gap:1.5rem;
-   justify-content: center;
+.products .box-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 30rem);
+    align-items: flex-start;
+    gap: 1.5rem;
+    justify-content: center;
 }
 
-.products .box-container .box{
-   border-radius: .5rem;
-   background-color: var(--white);
-   box-shadow: var(--box-shadow);
-   padding:2rem;
-   text-align: center;
-   border:var(--border);
-   position: relative;
+.products .box-container .box {
+    width: 100%;
+    max-width: 30rem;
+    border-radius: .5rem;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    text-align: center;
+    border: var(--border);
+    position: relative;
 }
 
 .products .box-container .box .image{
@@ -434,8 +436,8 @@ section{
 }
 
     .products2 .box-container .box {
-        width: 100%; /* Zmieniona wartoœæ, aby zajmowaæ 100% szerokoœci kontenera */
-        max-width: 50rem; /* Maksymalna szerokoœæ dla jednego box */
+        width: 100%; /* Zmieniona wartoï¿½ï¿½, aby zajmowaï¿½ 100% szerokoï¿½ci kontenera */
+        max-width: 50rem; /* Maksymalna szerokoï¿½ï¿½ dla jednego box */
         height: 60rem;
         border-radius: .5rem;
         background-color: var(--white);
